@@ -1,0 +1,14 @@
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+ifconfig eth0 10.0.0.254/24
+
+apt-get update
+
+apt-get install proftpd -y
+
+# ftp é o nome do hostname, caso seja outro deve alterar
+echo "127.0.0.1 ftp" > /etc/hosts
+
+/etc/init.d/proftpd start
+
+adduser joao
+echo "joao:senha" | chpasswd

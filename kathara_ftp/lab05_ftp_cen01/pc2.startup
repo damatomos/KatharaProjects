@@ -1,0 +1,10 @@
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+ifconfig eth0 10.0.0.2/24
+
+apt-get update
+
+apt-get install ftp
+
+apt-get install lftp
+
+lftp -e "put /files/arquivo02.pdf" -u joao,senha 10.0.0.254
